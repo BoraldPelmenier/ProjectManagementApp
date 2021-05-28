@@ -10,15 +10,17 @@ using System.Collections.Generic;
 namespace Services
 {
     public class ProjectService : IProjectService
-    {  
+    {
+        private List<Project> Projects = new List<Project>();
+
         private readonly IProjectRepository _projectRepository;
         public ProjectService(IProjectRepository projectRepository)
         {
             _projectRepository = projectRepository;
         }
-        public void AddProject(Project proj)
+        public void AddProject(Project project)
         {
-            _projectRepository.AddProject(proj.ToEntity());
+            _projectRepository.AddProject(project.ToEntity());
         }
 
         public void DeleteProjectById(int id)
@@ -27,11 +29,10 @@ namespace Services
         }
 
         public IQueryable<Project> GetProjects()
-        {
-            List<Project> Projects = new List<Project>();
-            foreach(ProjectEntity proj in _projectRepository.GetProjects())
+        {              
+            foreach(ProjectEntity project in _projectRepository.GetProjects())
             {                
-                Projects.Append(proj.ToDomain());
+                Projects.Append(project.ToDomain());
             }
             return Projects.AsQueryable();
         }
@@ -41,9 +42,9 @@ namespace Services
             return _projectRepository.GetProjectById(id).ToDomain();          
         }
 
-        public void UpdateProject(Project proj)
+        public void UpdateProject(Project project)
         {
-            _projectRepository.UpdateProject(proj.ToEntity());
+            _projectRepository.UpdateProject(project.ToEntity());
         }
     }
 }
