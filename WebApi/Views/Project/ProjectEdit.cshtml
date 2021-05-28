@@ -1,0 +1,15 @@
+﻿@using Domain
+@model Project
+
+@{
+}
+
+<div>
+    <form method="post" asp-controller="Project" asp-action="ProjectEdit">
+        <input type="hidden" value="@Model.Id" name="Id" />
+        <label>Input new project name</label>
+        <input type="text" asp-for="ProjName" placeholder="@Model.ProjName" id="projectEditName" />
+        <input type="submit" value="Add" />
+    </form>
+</div>
+
