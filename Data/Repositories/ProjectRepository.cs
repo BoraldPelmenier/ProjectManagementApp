@@ -20,11 +20,11 @@ namespace Data.Repositories
             _context = context;
         }
         
-        public void AddProject(ProjectEntity proj)
+        public void AddProject(ProjectEntity entity)
         {
-            if (proj != null)
+            if (entity != null)
             {
-                _context.Projects.Add(proj);
+                _context.Projects.Add(entity);
                 _context.SaveChanges();
             }
                
@@ -33,10 +33,10 @@ namespace Data.Repositories
 
         public void DeleteProjectById(int id)
         {
-            ProjectEntity proj = GetProjectById(id);
-            if(proj != null)
+            ProjectEntity entity = GetProjectById(id);
+            if(entity != null)
             {
-                _context.Projects.Remove(proj);
+                _context.Projects.Remove(entity);
                 _context.SaveChanges();
             }
                 
@@ -52,9 +52,10 @@ namespace Data.Repositories
             return _context.Projects.Single(x => x.Id == id);
         }
 
-        public void UpdateProject(ProjectEntity proj)
+        public void UpdateProject(ProjectEntity entity)
         {
-            throw new System.NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }

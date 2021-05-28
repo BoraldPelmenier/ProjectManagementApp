@@ -22,16 +22,14 @@ namespace WebApi.Controllers
 
         public IActionResult Index()
         {
-            var model = _projectService.GetProjects();
-            if (model == null)
-                return View("Hello");
+            var model = _projectService.GetProjects();           
             return View(model);
         }
 
         public IActionResult ProjectEdit(int id)
         {
             Project model = _projectService.GetProjectById(id);
-            return View(model);
+            return RedirectToAction("ProjectEdit", model);
         }
 
         [HttpPost]
@@ -52,6 +50,11 @@ namespace WebApi.Controllers
         {
             _projectService.AddProject(model);
             return View();
-        }        
+        } 
+        
+        public IActionResult ProjectAdd()
+        {
+            return View();
+        }
     }
 }
