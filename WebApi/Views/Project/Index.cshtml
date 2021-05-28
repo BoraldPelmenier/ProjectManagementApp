@@ -1,0 +1,23 @@
+﻿@using Domain
+@model IQueryable<Domain.Project> 
+
+@{
+}
+
+<div class="text-center">      
+    <a asp-controller="Project" asp-action="ProjectAdd">New project</a>
+</div>
+
+<div class="text-center">
+    @foreach(Project projectModel in Model)
+    {
+        <div>
+            @projectModel.ProjName
+            <a asp-controller="Project" asp-action="ProjectEdit" asp-route-id="@projectModel.Id">Edit!</a>
+            <form method="post" asp-controller="Project" asp-action="ProjectDelete">
+                <input type="hidden" value="@projectModel.Id" name="Id" />
+                <input type="submit" value="Delete Project!" />
+            </form>
+        </div>
+    }
+</div>
