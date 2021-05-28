@@ -31,8 +31,8 @@ namespace Services
         public IQueryable<Project> GetProjects()
         {              
             foreach(ProjectEntity project in _projectRepository.GetProjects())
-            {                
-                Projects.Append(project.ToDomain());
+            {    
+                Projects.Add(project.ToDomain());
             }
             return Projects.AsQueryable();
         }

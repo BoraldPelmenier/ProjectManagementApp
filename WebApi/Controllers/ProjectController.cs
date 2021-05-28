@@ -52,12 +52,6 @@ namespace WebApi.Controllers
         {
             _projectService.AddProject(model);
             return View();
-        }
-        
-        public IActionResult ProjectAdd()
-        {
-            Project model = new Project();
-            return View(model);
-        }
+        }        
     }
 }
