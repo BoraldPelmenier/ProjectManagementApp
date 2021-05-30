@@ -2,22 +2,31 @@
 @model IQueryable<Domain.Project> 
 
 @{
+    Layout = "_Layout";
 }
 
-<div class="text-center">      
-    <a asp-controller="Project" asp-action="ProjectAdd">New project</a>
-</div>
-
-<div class="text-center">
-    @foreach(Project projectModel in Model)
-    {
-        <div>
-            @projectModel.ProjName
-            <a asp-controller="Project" asp-action="ProjectEdit" asp-route-id="@projectModel.Id">Edit</a>
-            <form method="post" asp-controller="Project" asp-action="ProjectDelete">
-                <input type="hidden" value="@projectModel.Id" name="Id" />
-                <input type="submit" value="Delete Project!" />
-            </form>
-        </div>
-    }
+<div class="container">
+    <div>      
+        <a asp-controller="Project" asp-action="ProjectAdd">New project</a>
+    </div>
+    <div>
+        @foreach(Project projectModel in Model)
+        {                     
+             <div class="content">
+                  <form class="form" method="post" asp-controller="Project" asp-action="ProjectDelete">
+                       <div class="form-control">
+                            <label>Project name:</label>
+                            <input type="hidden" value="@projectModel.Id" name="Id" />
+                            <div>
+                                @projectModel.ProjName
+                            </div>
+                            <div>
+                                <a asp-controller="Project" asp-action="ProjectEdit" asp-route-id="@projectModel.Id">Edit</a>
+                            </div>
+                            <button>delete</button>
+                       </div>                        
+                  </form>
+             </div>            
+        }
+    </div>
 </div>

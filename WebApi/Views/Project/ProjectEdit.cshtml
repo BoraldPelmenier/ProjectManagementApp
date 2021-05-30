@@ -2,14 +2,19 @@
 @model Project
 
 @{
+    Layout = "_Layout";
 }
 
 <div>
-    <form method="post" asp-controller="Project" asp-action="ProjectEditPost">
-        <input type="hidden" value="@Model.Id" name="Id" />
-        <label>Input new project name</label>
-        <input type="text" asp-for="ProjName" placeholder="@Model.ProjName" id="projectEditName" />
-        <input type="submit" value="Add" />
+    <form class="form" method="post" asp-controller="Project" asp-action="ProjectEditPost">
+        <div class="form-control">
+            <input type="hidden" value="@Model.Id" name="Id" />
+            <label>Input new project name:</label>
+            <div>
+                <input type="text" asp-for="ProjName" placeholder="@Model.ProjName" id="projectEditName" />
+            </div>
+            <button>edit</button>
+        </div>
     </form>
 </div>
 

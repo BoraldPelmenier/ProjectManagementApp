@@ -26,9 +26,7 @@ namespace Data.Repositories
             {
                 _context.Projects.Add(entity);
                 _context.SaveChanges();
-            }
-               
-
+            }    
         }        
 
         public void DeleteProjectById(int id)
@@ -38,8 +36,7 @@ namespace Data.Repositories
             {
                 _context.Projects.Remove(entity);
                 _context.SaveChanges();
-            }
-                
+            }               
         }
 
         public IQueryable<ProjectEntity> GetProjects()

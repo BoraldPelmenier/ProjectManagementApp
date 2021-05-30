@@ -10,6 +10,6 @@ namespace Entities
         //public string UserEmail { get; set; }
         //public int UserPosition { get; set; }
         public int ProjectId { get; set; }
-        public virtual ProjectEntity Project { get; set; }
+        public virtual ProjectEntity Entity { get; set; }
     }
 }

@@ -50,7 +50,7 @@ namespace WebApi.Controllers
         public IActionResult ProjectAdd(Project model)
         {
             _projectService.AddProject(model);
-            return View();
+            return RedirectToAction("Index");
         } 
         
         public IActionResult ProjectAdd()

@@ -18,9 +18,9 @@ namespace Services
         {
             _projectRepository = projectRepository;
         }
-        public void AddProject(Project project)
+        public void AddProject(Project model)
         {
-            _projectRepository.AddProject(project.ToEntity());
+            _projectRepository.AddProject(model.ToEntity());
         }
 
         public void DeleteProjectById(int id)
@@ -30,9 +30,9 @@ namespace Services
 
         public IQueryable<Project> GetProjects()
         {              
-            foreach(ProjectEntity project in _projectRepository.GetProjects())
+            foreach(ProjectEntity entity in _projectRepository.GetProjects())
             {    
-                Projects.Add(project.ToDomain());
+                Projects.Add(entity.ToDomain());
             }
             return Projects.AsQueryable();
         }
@@ -42,9 +42,9 @@ namespace Services
             return _projectRepository.GetProjectById(id).ToDomain();          
         }
 
-        public void UpdateProject(Project project)
+        public void UpdateProject(Project model)
         {
-            _projectRepository.UpdateProject(project.ToEntity());
+            _projectRepository.UpdateProject(model.ToEntity());
         }
     }
 }
