@@ -25,15 +25,16 @@ namespace WebApi.Controllers
             var model = _projectService.GetProjects();           
             return View(model);
         }
-
-        public IActionResult ProjectEdit(int id)
+        
+        public IActionResult ProjectEdit(Project model)
         {
-            Project model = _projectService.GetProjectById(id);
-            return RedirectToAction("ProjectEdit", model);
+            //Project model = _projectService.GetProjectById(id);
+            //return RedirectToAction("ProjectEdit", model);
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult ProjectEdit(Project project)
+        public IActionResult ProjectEditPost(Project project)
         {
             _projectService.UpdateProject(project);
             return RedirectToAction("Index");
