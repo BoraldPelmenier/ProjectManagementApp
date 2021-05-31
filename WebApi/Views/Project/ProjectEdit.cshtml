@@ -9,9 +9,29 @@
     <form class="form" method="post" asp-controller="Project" asp-action="ProjectEditPost">
         <div class="form-control">
             <input type="hidden" value="@Model.Id" name="Id" />
-            <label>Input new project name:</label>
             <div>
-                <input type="text" asp-for="ProjectName" placeholder="@Model.ProjectName" id="projectEditName" />
+                <label>Input new project name:</label>
+                <input type="text" asp-for="ProjectName" id="projectEditName" />
+            </div>
+            <div>
+                <label>Input new Company customer name:</label>
+                <input type="text" asp-for="CompanyCustomer" />
+            </div>
+            <div>
+                <label>Input new Company executor name:</label>
+                <input type="text" asp-for="CompanyExecutor" />
+            </div>
+            <div>
+                <label>Input new project start date:</label>
+                <input type="date" asp-for="ProjectStart" />
+            </div>
+            <div>
+                <label for="projectPriority">Select new user status:</label>                
+                <select asp-for="ProjectPriority" name="projectPriority" id="projectPriority">
+                    <option value="0">low</option>
+                    <option value="1">mid</option>
+                    <option value="2">higth</option>
+                </select>                
             </div>
             <button>edit</button>
         </div>
