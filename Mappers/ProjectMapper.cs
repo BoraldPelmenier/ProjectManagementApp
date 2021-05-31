@@ -12,7 +12,12 @@ namespace Mappers
             return new ProjectEntity
             {
                 Id = model.Id,
-                ProjectName = model.ProjName,
+                ProjectName = model.ProjectName,
+                CompanyCustomer = model.CompanyCustomer,
+                CompanyExecutor = model.CompanyExecutor,
+                ProjectStart = model.ProjectStart,
+                ProjectEnd = model.ProjectEnd,
+                ProjectPriority = (int)model.ProjectPriority,
                 Users = (IQueryable<UserEntity>)model.Users
             };
         }
@@ -22,13 +27,12 @@ namespace Mappers
             return new Project
             {
                 Id = entity.Id,
-                ProjName = entity.ProjectName,                
-                //public UserEntity UserInfo { get; set; }
-                //public UserEntity ProjectLeadInfo { get; set; }
-                //public UserEntity ProjectExecutorInfo { get; set; }
-                //public DateTime StartProj { get; set; }
-                //public DateTime EndProj { get; set; }
-                //public int ProjPriority { get; set; }
+                ProjectName = entity.ProjectName,
+                CompanyCustomer = entity.CompanyCustomer,
+                CompanyExecutor = entity.CompanyExecutor,
+                ProjectStart = entity.ProjectStart,
+                ProjectEnd = entity.ProjectEnd,
+                ProjectPriority = (ProjectPriority)entity.ProjectPriority,
                 Users = (IQueryable<User>)entity.Users
             };
         }

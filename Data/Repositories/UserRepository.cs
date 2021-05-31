@@ -6,7 +6,7 @@ namespace Data.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public void AddUser(UserEntity user)
+        public void AddUser(UserEntity entity)
         {
             throw new System.NotImplementedException();
         }
@@ -21,7 +21,7 @@ namespace Data.Repositories
             throw new System.NotImplementedException();
         }
 
-        public void UpdateUser(UserEntity user)
+        public void UpdateUser(UserEntity entity)
         {
             throw new System.NotImplementedException();
         }

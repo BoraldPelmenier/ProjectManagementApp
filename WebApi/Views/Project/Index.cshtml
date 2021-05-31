@@ -15,15 +15,17 @@
              <div class="content">
                   <form class="form" method="post" asp-controller="Project" asp-action="ProjectDelete">
                        <div class="form-control">
-                            <label>Project name:</label>
-                            <input type="hidden" value="@projectModel.Id" name="Id" />
-                            <div>
-                                @projectModel.ProjName
-                            </div>
-                            <div>
-                                <a asp-controller="Project" asp-action="ProjectEdit" asp-route-id="@projectModel.Id">Edit</a>
-                            </div>
-                            <button>delete</button>
+                           <label>Project name:</label>
+                           <input type="hidden" value="@projectModel.Id" name="Id" />
+                           <div>
+                                @projectModel.ProjectName
+                           </div>
+                           <div class="buttons-panel">
+                               <div class="buttons-panel-item">
+                                   <a asp-controller="Project" asp-action="ProjectEdit" asp-route-id="@projectModel.Id">Edit</a>
+                               </div>
+                               <button class="buttons-panel-item">delete</button>
+                           </div>
                        </div>                        
                   </form>
              </div>            

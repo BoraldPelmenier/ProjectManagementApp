@@ -20,6 +20,10 @@
     width: 400px;
 }
 
+.buttons-panel-item {
+    display: inline-block;
+}
+
 .form {
     padding: 30px 40px;
 }

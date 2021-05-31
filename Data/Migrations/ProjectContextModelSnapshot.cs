@@ -30,7 +30,7 @@ namespace Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ProjectName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
@@ -51,10 +51,10 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("UserSecondName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 

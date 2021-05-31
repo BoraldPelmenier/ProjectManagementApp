@@ -10,6 +10,7 @@ namespace Data.DbContexts
 
         public ProjectContext()
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System; 
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Domain
@@ -6,15 +7,12 @@ namespace Domain
     public class Project
     {
         public int Id { get; set; }
-        public string ProjName { get; set; }
-        //public string CustomerCompanyName { get; set; }
-        //public string ExecutorCompanyName { get; set; }
-        //public UserEntity UserInfo { get; set; }
-        //public UserEntity ProjectLeadInfo { get; set; }
-        //public UserEntity ProjectExecutorInfo { get; set; }
-        //public DateTime StartProj { get; set; }
-        //public DateTime EndProj { get; set; }
-        //public int ProjPriority { get; set; }
+        public string ProjectName { get; set; }
+        public string CompanyCustomer { get; set; }
+        public string CompanyExecutor { get; set; }
+        public DateTime ProjectStart { get; set; }
+        public DateTime ProjectEnd { get; set; }
+        public ProjectPriority ProjectPriority { get; set; }
         public IQueryable<User> Users { get; set; }
     }
 }
