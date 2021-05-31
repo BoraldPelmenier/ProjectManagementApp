@@ -14,11 +14,29 @@
         {                     
              <div class="content">
                   <form class="form" method="post" asp-controller="Project" asp-action="ProjectDelete">
-                       <div class="form-control">
-                           <label>Project name:</label>
+                       <div class="form-control">                           
                            <input type="hidden" value="@projectModel.Id" name="Id" />
                            <div>
-                                @projectModel.ProjectName
+                               <div>
+                                   <label>Project name:</label>
+                                   <label>@projectModel.ProjectName</label>
+                               </div>
+                               <div>
+                                   <label>Company customer:</label>
+                                   <label>@projectModel.CompanyCustomer</label>
+                               </div>
+                               <div>
+                                   <label>Company executor:</label>
+                                   <label>@projectModel.CompanyExecutor</label>
+                               </div>
+                               <div>
+                                   <label>Date start:</label>
+                                   <label>@projectModel.ProjectStart</label>                                   
+                               </div>
+                               <div>
+                                   <label>Project priority:</label>
+                                   <label>@projectModel.ProjectPriority</label>
+                               </div>
                            </div>
                            <div class="buttons-panel">
                                <div class="buttons-panel-item">

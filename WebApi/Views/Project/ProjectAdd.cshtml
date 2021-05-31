@@ -9,9 +9,29 @@
     <form class="form" method="post" asp-controller="Project" asp-action="ProjectAdd">
         <div class="form-control">
             <input type="hidden" asp-for="Id" name="Id" />
-            <label>Create new project:</label>
             <div>
-                <input type="text" asp-for="ProjectName" placeholder="project name" id="projectName" />
+                <label>Input project name:</label>
+                <input type="text" asp-for="ProjectName" id="projectEditName" />
+            </div>
+            <div>
+                <label>Input Company customer name:</label>
+                <input type="text" asp-for="CompanyCustomer" />
+            </div>
+            <div>
+                <label>Input Company executor name:</label>
+                <input type="text" asp-for="CompanyExecutor" />
+            </div>
+            <div>
+                <label>Input project start date:</label>
+                <input type="date" asp-for="ProjectStart" />
+            </div>
+            <div>
+                <label for="projectPriority">Select user status:</label>
+                <select asp-for="ProjectPriority" name="projectPriority" id="projectPriority">
+                    <option value="0">low</option>
+                    <option value="1">mid</option>
+                    <option value="2">higth</option>
+                </select>                
             </div>
             <button>add</button>
         </div>
