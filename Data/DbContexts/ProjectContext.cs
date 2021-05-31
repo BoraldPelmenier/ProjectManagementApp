@@ -9,7 +9,8 @@ namespace Data.DbContexts
         public DbSet<UserEntity> Users { get; set; }
 
         public ProjectContext()
-        {            
+        {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
