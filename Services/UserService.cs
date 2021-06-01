@@ -26,22 +26,26 @@ namespace Services
 
         public void DeleteUserById(int id)
         {
-            throw new NotImplementedException();
+            _userRepository.DeleteUserById(id);
         }
 
         public IQueryable<User> GetProjects()
         {
-            throw new NotImplementedException();
+            foreach (UserEntity entity in _userRepository.GetAllUsers())
+            {
+                Users.Add(entity.ToDomain());
+            }
+            return Users.AsQueryable();
         }
 
         public User GetUserById(int id)
         {
-            throw new NotImplementedException();
+            return _userRepository.GetUserById(id).ToDomain();
         }
 
         public void UpdateUser(User model)
         {
-            throw new NotImplementedException();
+            _userRepository.UpdateUser(model.ToEntity());
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Mappers
             };
         }
 
-        public static User ToEntity(this UserEntity entity)
+        public static User ToDomain(this UserEntity entity)
         {
             return new User
             {
