@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using Entities;
 
 namespace Data.Repositories.Abstract
@@ -7,7 +7,8 @@ namespace Data.Repositories.Abstract
     {
         void AddUser(UserEntity user);
         void UpdateUser(UserEntity user);
-        List<UserEntity> GetAllUsers();
+        IQueryable<UserEntity> GetAllUsers();
         void DeleteUserById(int id);
+        UserEntity GetUserById(int id);
     }
 }
