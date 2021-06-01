@@ -1,9 +1,10 @@
 ﻿
+using Domain.Abstract;
+
 namespace Domain
 {
-    public class User
-    {
-        public int Id { get; set; }
+    public class User : BaseModel
+    {        
         public string UserFirstName { get; set; }
         public string UserSecondName { get; set; }
         public string UserMiddleName { get; set; }
