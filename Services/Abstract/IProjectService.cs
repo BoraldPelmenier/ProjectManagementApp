@@ -6,8 +6,8 @@ namespace Services.Abstract
 {
     public interface IProjectService
     {
-        void AddProject(Project proj);
-        void UpdateProject(Project proj);
+        void AddProject(Project model);
+        void UpdateProject(Project model);
         IQueryable<Project> GetProjects();
         Project GetProjectById(int id);
         void DeleteProjectById(int id);
