@@ -1,0 +1,41 @@
+﻿@using Domain
+@model IQueryable<Domain.User>
+
+@{
+    Layout = "_Layout";
+}
+
+@foreach(User userModel in Model)
+{
+    <div>
+        <form>
+            <input type="hidden" value="@userModel.Id" name="Id" />
+            <div>
+                <label>Employee name:</label>
+                <label>@userModel.UserFirstName</label>
+            </div>
+            <div>
+                <label>Employee second name:</label>
+                <label>@userModel.UserSecondName</label>
+            </div>
+            <div>
+                <label>Employee middle name:</label>
+                <label>@userModel.UserMiddleName</label>
+            </div>
+            <div>
+                <label>Employee E-mail:</label>
+                <label>@userModel.UserEmail</label>
+            </div>
+            <div>
+                <label>Employee status:</label>
+                <label>@userModel.Status</label>
+            </div>
+            <div class="buttons-panel">
+                <div class="buttons-panel-item">
+                    <a asp-controller="User" asp-action="UserEdit" asp-route-id="@userModel.Id">Edit</a>
+                </div>
+                <button class="buttons-panel-item">Delete</button>
+            </div>
+        </form>
+    </div>
+}

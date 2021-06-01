@@ -12,7 +12,7 @@ namespace Services
 {
     public class UserService : IUserService
     {
-        List<User> Users = new List<User>();
+        private List<User> Users = new List<User>();
         private readonly IUserRepository _userRepository;
 
         public UserService(IUserRepository userRepository)
@@ -29,7 +29,7 @@ namespace Services
             _userRepository.DeleteUserById(id);
         }
 
-        public IQueryable<User> GetProjects()
+        public IQueryable<User> GetUsers()
         {
             foreach (UserEntity entity in _userRepository.GetAllUsers())
             {

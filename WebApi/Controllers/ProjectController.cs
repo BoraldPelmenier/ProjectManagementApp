@@ -15,9 +15,9 @@ namespace WebApi.Controllers
     {
         private readonly IProjectService _projectService;
 
-        public ProjectController(IProjectService projServ)
+        public ProjectController(IProjectService projectService)
         {
-            _projectService = projServ;
+            _projectService = projectService;
         }
 
         public IActionResult Index()
@@ -34,9 +34,9 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult ProjectEditPost(Project project)
+        public IActionResult ProjectEditPost(Project model)
         {
-            _projectService.UpdateProject(project);
+            _projectService.UpdateProject(model);
             return RedirectToAction("Index");
         }
 

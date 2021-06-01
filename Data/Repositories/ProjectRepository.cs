@@ -2,7 +2,6 @@
 using Data.Repositories.Abstract;
 using Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Data.Repositories
@@ -11,8 +10,7 @@ namespace Data.Repositories
     // может соединятся с бд, файлом, облаком и тд.
     // repos в единственном экземпляере и потокобезопасным.
     public class ProjectRepository : IProjectRepository
-    {
-        //private static List<ProjectEntity> _list = new List<ProjectEntity>();
+    {        
         private readonly ProjectContext _context;
 
         public ProjectRepository(ProjectContext context)
