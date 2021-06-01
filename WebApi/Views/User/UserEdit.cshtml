@@ -5,23 +5,23 @@
     Layout = "_Layout";
 }
 
-<form class="form" method="post" asp-controller="User" asp-action="UserAdd">
+<form class="form" method="post" asp-controller="User" asp-action="UserEditPost">
     <div class="form-control">
         <input type="hidden" asp-for="Id" name="Id" />
         <div>
-            <label>Input employee name:</label>
+            <label>new name:</label>
             <input type="text" asp-for="UserFirstName" id="userEditName" />
         </div>
         <div>
-            <label>Input employee second name:</label>
+            <label>new second name:</label>
             <input type="text" asp-for="UserSecondName" />
         </div>
         <div>
-            <label>Input employee middle name:</label>
+            <label>new middle name:</label>
             <input type="text" asp-for="UserMiddleName" />
         </div>
         <div>
-            <label>Input e-mail:</label>
+            <label>e-mail:</label>
             <input type="text" asp-for="UserEmail" />
         </div>
         <div>
@@ -32,6 +32,6 @@
                 <option value="2">worker</option>
             </select>
         </div>
-        <button>add</button>
+        <button>Edit</button>
     </div>
 </form>

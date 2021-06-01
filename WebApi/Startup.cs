@@ -23,6 +23,8 @@ namespace WebApi
         {   
             services.AddTransient<IProjectService, ProjectService>();
             services.AddTransient<IProjectRepository, ProjectRepository>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddDbContext<ProjectContext>();
             
             services.AddMvc(options => options.EnableEndpointRouting = false);            

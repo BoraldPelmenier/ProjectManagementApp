@@ -41,13 +41,13 @@ namespace WebApi.Controllers
         public IActionResult UserDelete(int id)
         {
             _userService.DeleteUserById(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("AllUsers");
         }
         [HttpPost]
         public IActionResult UserAdd(User model)
         {
             _userService.AddUser(model);
-            return RedirectToAction("Index");
+            return View();
         }
 
         public IActionResult UserAdd()

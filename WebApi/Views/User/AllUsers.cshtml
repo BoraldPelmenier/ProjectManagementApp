@@ -8,7 +8,7 @@
 @foreach(User userModel in Model)
 {
     <div>
-        <form>
+        <form class="form" asp-controller="User" asp-action="UserDelete">
             <input type="hidden" value="@userModel.Id" name="Id" />
             <div>
                 <label>Employee name:</label>
