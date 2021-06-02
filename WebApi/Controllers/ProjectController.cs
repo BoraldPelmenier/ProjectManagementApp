@@ -49,6 +49,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult ProjectAdd(Project model)
         {
+            model.CreatedDate = DateTime.Now;            
             _projectService.AddProject(model);
             return RedirectToAction("Index");
         } 
@@ -56,6 +57,12 @@ namespace WebApi.Controllers
         public IActionResult ProjectAdd()
         {
             return View();
+        }
+
+        public IActionResult ProjectInfo(int id)
+        {
+            var model = _projectService.GetProjectById(id);
+            return View(model);
         }
     }
 }
