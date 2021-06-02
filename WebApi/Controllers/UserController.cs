@@ -46,8 +46,9 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult UserAdd(User model)
         {
+            model.CreatedDate = DateTime.Now;
             _userService.AddUser(model);
-            return View();
+            return RedirectToAction("Index", "Project");
         }
 
         public IActionResult UserAdd()
