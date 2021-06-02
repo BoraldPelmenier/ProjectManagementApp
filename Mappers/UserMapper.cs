@@ -18,7 +18,7 @@ namespace Mappers
                 UserMiddleName = model.UserMiddleName,
                 UserEmail = model.UserEmail,
                 Status = (int)model.Status,
-                ProjectId = model.ProjectId,
+                ProjectsId = model.ProjectId,
                 CreatedDate = model.CreatedDate
             };
         }
@@ -33,7 +33,7 @@ namespace Mappers
                 UserMiddleName = entity.UserMiddleName,
                 UserEmail = entity.UserEmail,
                 Status = (UserStatus)entity.Status,
-                ProjectId = entity.ProjectId,
+                ProjectId = entity.ProjectsId,
                 CreatedDate = entity.CreatedDate
             };
         }

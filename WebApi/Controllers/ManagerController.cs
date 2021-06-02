@@ -18,16 +18,30 @@ namespace WebApi.Controllers
             _projectService = projectService;
             _userService = userService;
         }
-
-        public IActionResult ProjectInfo(int? id)
+        [HttpGet]
+        public IActionResult ProjectInfo(Project model)
         {
-            return View(new InfoViewModel { ProjectModel = _projectService.GetProjectById(id), Users = _userService.GetUsers() });            
+            var infoModel = _projectService.GetProjectById(model.Id);
+            //var projects = _projectService.GetProjects();
+            var infoViewModel = new InfoViewModel() { ProjectModel = infoModel, Users = _userService.GetUsers() };           
+            return View(infoViewModel);
+            //return View(new InfoViewModel { ProjectModel = _projectService.GetProjects().Single(p => p.Id == model.Id), Users = _userService.GetUsers() });            
         }
 
-        public void AddUserInProject(this Project projectModel, User userModel)
+        
+        public IActionResult AddUserInProject(int projectId, int userId)
         {
-            projectModel.Users.Append(userModel);
-           // return View("ProjectInfo");
+            Project project = _projectService.GetProjectById(projectId);
+            User user = _userService.GetUserById(userId);
+            user.ProjectId = project.Id;
+            _userService.UpdateUser(user);
+            return RedirectToAction("ProjectInfo", project);
+            //infoViewModel.ProjectModel.Users.Append(_userService.GetUserById(userId));
+            //_projectService.UpdateProject(projectModel);
+            //var _projectModel = _projectService.GetProjectById(projectModel.Id);
+            //_projectModel.Users.Append(_userService.GetUserById(user.Id));
+            //_projectService.UpdateProject(_projectModel);
+            // return View("ProjectInfo");
         }
     }
 }

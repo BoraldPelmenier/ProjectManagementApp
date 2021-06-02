@@ -12,7 +12,6 @@ namespace Domain
         public string CompanyExecutor { get; set; }
         public DateTime ProjectStart { get; set; }
         public DateTime ProjectEnd { get; set; }
-        public ProjectPriority ProjectPriority { get; set; }
-        public IQueryable<User> Users { get; set; }
+        public ProjectPriority ProjectPriority { get; set; }        
     }
 }

@@ -44,7 +44,7 @@ namespace Data.Repositories
 
         public ProjectEntity GetProjectById(int? id)
         {
-            return _context.Projects.Single(x => x.Id == id);
+            return _context.Projects.SingleOrDefault(x => x.Id == id);
         }
 
         public void UpdateProject(ProjectEntity entity)

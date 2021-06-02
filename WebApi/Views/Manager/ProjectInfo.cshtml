@@ -30,22 +30,8 @@
                 <label>Project priority:</label>
                 <label>@Model.ProjectModel.ProjectPriority</label>
             </div>
-            @foreach (User user in Model.ProjectModel.Users)
-            {
-                <div>
-                    <div>
-                        <label>@user.UserFirstName</label>
-                    </div>
-                    <div>
-                        <label>@user.UserSecondName</label>
-                    </div>
-                    <div>
-                        <label>@user.Status</label>
-                    </div>
-                </div>
-                <br />
-            }
-            @foreach (var modelUser in Model.Users)
+
+            @foreach (User modelUser in Model.Users.Where(u => u.ProjectId == Model.ProjectModel.Id))
             {
                 <div>
                     <div>
@@ -59,7 +45,25 @@
                     </div>
                 </div>
                 <br />
-                <button asp-controller="Manager" asp-action="AddUserInProject">Add to project</button>
+            }
+
+            @foreach (User modelUser in Model.Users)
+            {
+                <input type="hidden" value="@modelUser.Id" />
+                <div>
+                    <div>
+                        <label>@modelUser.UserFirstName</label>
+                    </div>
+                    <div>
+                        <label>@modelUser.UserSecondName</label>
+                    </div>
+                    <div>
+                        <label>@modelUser.Status</label>
+                    </div>                    
+                    <label>@modelUser.ProjectId</label>
+                </div>
+                <br />
+                <a asp-controller="Manager" asp-action="AddUserInProject" asp-route-projectId="@Model.ProjectModel.Id" asp-route-userId="@modelUser.Id">Add to project</a>
             }
 
         </div>        

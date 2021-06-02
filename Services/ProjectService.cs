@@ -18,7 +18,7 @@ namespace Services
             _projectRepository = projectRepository;
         }
         public void AddProject(Project model)
-        {
+        {            
             _projectRepository.AddProject(model.ToEntity());
         }
 

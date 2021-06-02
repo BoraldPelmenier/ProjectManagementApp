@@ -9,7 +9,7 @@ namespace Entities
         public string UserMiddleName { get; set; }
         public string UserEmail { get; set; }
         public int Status { get; set; }
-        public int ProjectId { get; set; }
+        public int ProjectsId { get; set; }
         public virtual ProjectEntity Entity { get; set; }
     }
 }

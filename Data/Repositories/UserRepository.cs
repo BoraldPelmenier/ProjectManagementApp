@@ -42,7 +42,10 @@ namespace Data.Repositories
 
         public UserEntity GetUserById(int? id)
         {
-            return _userContext.Users.Single(u => u.Id == id);
+            var entity = _userContext.Users.FirstOrDefault(u => u.Id == id);
+            _userContext.Entry(entity).State = EntityState.Detached;
+            _userContext.SaveChanges();
+            return entity;
         }
     }
 }

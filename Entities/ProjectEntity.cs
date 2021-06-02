@@ -19,6 +19,5 @@ namespace Entities
         public DateTime ProjectStart { get; set; }
         public DateTime ProjectEnd { get; set; }
         public int ProjectPriority { get; set; }        
-        public virtual IQueryable<UserEntity> Users { get; set; }
     }
 }

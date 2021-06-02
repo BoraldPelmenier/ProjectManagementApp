@@ -59,10 +59,10 @@ namespace WebApi.Controllers
             return View();
         }
 
-        public IActionResult ProjectInfo(int id)
-        {
-            var model = _projectService.GetProjectById(id);
-            return View(model);
-        }
+        //public IActionResult ProjectInfo(int id)
+        //{
+        //    var model = _projectService.GetProjectById(id);
+        //    return View(model);
+        //}
     }
 }
