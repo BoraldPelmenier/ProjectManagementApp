@@ -38,7 +38,7 @@ namespace Services
             return Users.AsQueryable();
         }
 
-        public User GetUserById(int id)
+        public User GetUserById(int? id)
         {
             return _userRepository.GetUserById(id).ToDomain();
         }

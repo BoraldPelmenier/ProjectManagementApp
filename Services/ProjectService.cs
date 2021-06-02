@@ -36,7 +36,7 @@ namespace Services
             return Projects.AsQueryable();
         }
 
-        public Project GetProjectById(int id)
+        public Project GetProjectById(int? id)
         {
             return _projectRepository.GetProjectById(id).ToDomain();          
         }

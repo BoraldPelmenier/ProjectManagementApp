@@ -8,7 +8,7 @@ namespace Data.Repositories.Abstract
         void AddProject(ProjectEntity proj);
         void UpdateProject(ProjectEntity proj);
         IQueryable<ProjectEntity> GetProjects();
-        ProjectEntity GetProjectById(int id);
+        ProjectEntity GetProjectById(int? id);
         void DeleteProjectById(int id);
 
     }

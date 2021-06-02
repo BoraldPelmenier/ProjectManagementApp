@@ -9,7 +9,7 @@ namespace Services.Abstract
         void AddProject(Project model);
         void UpdateProject(Project model);
         IQueryable<Project> GetProjects();
-        Project GetProjectById(int id);
+        Project GetProjectById(int? id);
         void DeleteProjectById(int id);
     }
 }

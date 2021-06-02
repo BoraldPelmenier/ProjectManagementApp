@@ -9,6 +9,6 @@ namespace Data.Repositories.Abstract
         void UpdateUser(UserEntity user);
         IQueryable<UserEntity> GetAllUsers();
         void DeleteUserById(int id);
-        UserEntity GetUserById(int id);
+        UserEntity GetUserById(int? id);
     }
 }

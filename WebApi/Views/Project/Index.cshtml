@@ -38,7 +38,7 @@
                                    <label>@projectModel.ProjectPriority</label>
                                </div>
                            </div>
-                           <a href="#">more info...</a>
+                           <a asp-controller="Manager" asp-action="ProjectInfo">more info...</a>
                            <div class="buttons-panel">
                                <div class="buttons-panel-item">
                                    <a asp-controller="Project" asp-action="ProjectEdit" asp-route-id="@projectModel.Id">Edit</a>

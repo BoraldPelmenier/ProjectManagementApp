@@ -8,7 +8,7 @@ namespace Services.Abstract
         void AddUser(User model);
         void UpdateUser(User model);
         IQueryable<User> GetUsers();
-        User GetUserById(int id);
+        User GetUserById(int? id);
         void DeleteUserById(int id);
     }
 }

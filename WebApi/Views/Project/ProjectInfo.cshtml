@@ -1,5 +1,73 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Domain
+@using WebApi.ViewModels;
+@model InfoViewModel
+
 @{
+
 }
+
+<form class="form" method="post" asp-controller="Project" asp-action="ProjectDelete">
+    <div class="form-control">
+        <input type="hidden" value="@Model.ProjectModel.Id" name="Id" />
+        <div>
+            <div>
+                <label>Project name:</label>
+                <label>@Model.ProjectModel.ProjectName</label>
+            </div>
+            <div>
+                <label>Company customer:</label>
+                <label>@Model.ProjectModel.CompanyCustomer</label>
+            </div>
+            <div>
+                <label>Company executor:</label>
+                <label>@Model.ProjectModel.CompanyExecutor</label>
+            </div>
+            <div>
+                <label>Date start:</label>
+                <label>@Model.ProjectModel.ProjectStart</label>
+            </div>
+            <div>
+                <label>Project priority:</label>
+                <label>@Model.ProjectModel.ProjectPriority</label>
+            </div>
+            @foreach (User user in Model.ProjectModel.Users)
+            {
+                <div>
+                    <div>
+                        <label>@user.UserFirstName</label>
+                    </div>
+                    <div>
+                        <label>@user.UserSecondName</label>
+                    </div>
+                    <div>
+                        <label>@user.Status</label>
+                    </div>
+                </div>
+                <br />
+            }
+            @foreach (var modelUser in Model.Users)
+            {
+                <div>
+                    <div>
+                        <label>@modelUser.UserFirstName</label>
+                    </div>
+                    <div>
+                        <label>@modelUser.UserSecondName</label>
+                    </div>
+                    <div>
+                        <label>@modelUser.Status</label>
+                    </div>
+                </div>
+                <br />
+                <button asp-controller="Manager" asp-action="AddUserInProject">Add to project</button>
+            }
+
+        </div>        
+        <div class="buttons-panel">
+            <div class="buttons-panel-item">
+                <a asp-controller="Project" asp-action="ProjectEdit" asp-route-id="@Model.ProjectModel.Id">Edit</a>
+            </div>
+            <button class="buttons-panel-item">delete</button>
+        </div>
+    </div>
+</form>

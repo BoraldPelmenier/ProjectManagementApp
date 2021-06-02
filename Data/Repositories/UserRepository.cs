@@ -40,7 +40,7 @@ namespace Data.Repositories
             _userContext.SaveChanges();
         }
 
-        public UserEntity GetUserById(int id)
+        public UserEntity GetUserById(int? id)
         {
             return _userContext.Users.Single(u => u.Id == id);
         }

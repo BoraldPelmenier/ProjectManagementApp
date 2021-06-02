@@ -42,7 +42,7 @@ namespace Data.Repositories
             return _context.Projects.OrderBy(x => x.Id);
         }
 
-        public ProjectEntity GetProjectById(int id)
+        public ProjectEntity GetProjectById(int? id)
         {
             return _context.Projects.Single(x => x.Id == id);
         }
