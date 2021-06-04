@@ -43,5 +43,13 @@ namespace WebApi.Controllers
             //_projectService.UpdateProject(_projectModel);
             // return View("ProjectInfo");
         }
+
+        public IActionResult DeleteUserFromProject(int userId)
+        {
+            User user = _userService.GetUserById(userId);
+            user.ProjectId = 0;
+            _userService.UpdateUser(user);
+            return RedirectToAction("ProjectInfo");
+        }
     }
 }
