@@ -43,7 +43,7 @@
                     <div>
                         <label>@modelUser.Status</label>
                     </div>
-                    <a asp-controller="Manager"></a>
+                    <a asp-controller="Manager" asp-action="DeleteUserFromProject" asp-route-userId="@modelUser.Id">remove</a>
                 </div>
                 <br/>
             }
@@ -64,7 +64,7 @@
                     <label>@modelUser.ProjectId</label>
                 </div>
                 <br />
-                <a asp-controller="Manager" asp-action="AddUserInProject" asp-route-projectId="@Model.ProjectModel.Id" asp-route-userId="@modelUser.Id">Add to project</a>
+                <a asp-controller="Manager" asp-action="AddUserInProject" asp-route-projectId="@Model.ProjectModel.Id" asp-route-userId="@modelUser.Id">add to project</a>
             }
 
         </div>        

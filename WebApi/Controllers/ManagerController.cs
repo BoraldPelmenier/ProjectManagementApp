@@ -21,35 +21,28 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult ProjectInfo(Project model)
         {
-            var infoModel = _projectService.GetProjectById(model.Id);
-            //var projects = _projectService.GetProjects();
+            var infoModel = _projectService.GetProjectById(model.Id);           
             var infoViewModel = new InfoViewModel() { ProjectModel = infoModel, Users = _userService.GetUsers() };           
-            return View(infoViewModel);
-            //return View(new InfoViewModel { ProjectModel = _projectService.GetProjects().Single(p => p.Id == model.Id), Users = _userService.GetUsers() });            
+            return View(infoViewModel);                        
         }
 
         
         public IActionResult AddUserInProject(int projectId, int userId)
         {
-            Project project = _projectService.GetProjectById(projectId);
-            User user = _userService.GetUserById(userId);
-            user.ProjectId = project.Id;
-            _userService.UpdateUser(user);
-            return RedirectToAction("ProjectInfo", project);
-            //infoViewModel.ProjectModel.Users.Append(_userService.GetUserById(userId));
-            //_projectService.UpdateProject(projectModel);
-            //var _projectModel = _projectService.GetProjectById(projectModel.Id);
-            //_projectModel.Users.Append(_userService.GetUserById(user.Id));
-            //_projectService.UpdateProject(_projectModel);
-            // return View("ProjectInfo");
+            Project projectModel = _projectService.GetProjectById(projectId);
+            User userModel = _userService.GetUserById(userId);
+            userModel.ProjectId = projectModel.Id;
+            _userService.UpdateUser(userModel);
+            return RedirectToAction("ProjectInfo", projectModel);            
         }
 
         public IActionResult DeleteUserFromProject(int userId)
         {
-            User user = _userService.GetUserById(userId);
-            user.ProjectId = 0;
-            _userService.UpdateUser(user);
-            return RedirectToAction("ProjectInfo");
+            User userModel = _userService.GetUserById(userId);
+            Project projectModel = _projectService.GetProjectById(userModel.ProjectId);
+            userModel.ProjectId = 0;
+            _userService.UpdateUser(userModel);
+            return RedirectToAction("ProjectInfo", projectModel);
         }
     }
 }
